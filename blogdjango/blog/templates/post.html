@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load markdownify %}
+{% block content%}
+    <div class="container">
+        <h1> {{ post.titulo | markdownify }} </h1>
+        <h3> {{ post.descricao | markdownify }}</h3>
+    </div>
+
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-autp">
+                    <p> {{ post.conteudo | markdownify }}</p>
+                </div>
+            </div>
+        </div>
+    </article>
+{% endblock %}

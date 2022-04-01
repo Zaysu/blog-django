@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load markdownify %}
+{% block content%}
+<header class="masthead">
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Blog Rapido Django</h1>
+    <p class="lead">Blog José Carlos</p>
+  </div>
+</div>
+
+    {% for post in posts %}
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="{{ post.capa }}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{ post.titulo | markdownify }}</h5>
+            <p class="card-text">{{ post.descricao | markdownify }}</p>
+            <a href="{% url 'post' post.id %}" class="btn btn-primary">Ver mais</a>
+          </div>
+        </div>
+    {% endfor %}
+
+{% endblock content %}
